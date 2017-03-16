@@ -7,12 +7,10 @@ cache:
   directories:
     - node_modules
 node_js:
+  - '7'
   - '6'
   - '5'
   - '4'
-  - iojs-v3
-  - iojs-v2
-  - iojs-v1
 addons:
   apt:
     sources:
@@ -29,8 +27,10 @@ os:
   - linux
   - osx
 before_install:
+  - brew update
+  - brew install homebrew/versions/boost155
   - export PATH=./node_modules/.bin/:$PATH
-  - PUBLISH_BINARY=false
+  - PUBLISH_BINARY=true
   - echo $TRAVIS_BRANCH
   - echo `git describe --tags --always HEAD`
   - if [[ $TRAVIS_BRANCH == `git describe --tags --always HEAD` ]]; then PUBLISH_BINARY=true; fi;
