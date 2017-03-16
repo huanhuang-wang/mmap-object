@@ -30,7 +30,7 @@ before_install:
   - if [[ "$TRAVIS_OS_NAME" == "osx" ]]; then brew update; fi
   - if [[ "$TRAVIS_OS_NAME" == "osx" ]]; then brew install homebrew/versions/boost155; fi
   - export PATH=./node_modules/.bin/:$PATH
-  - PUBLISH_BINARY=true
+  - PUBLISH_BINARY=false
   - echo $TRAVIS_BRANCH
   - echo `git describe --tags --always HEAD`
   - if [[ $TRAVIS_BRANCH == `git describe --tags --always HEAD` ]]; then PUBLISH_BINARY=true; fi;
